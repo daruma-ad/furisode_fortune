@@ -11,16 +11,16 @@
     --deep-burgundy: #5a1a2e;
     --cream: #fdf5e6;
     --white: #ffffff;
-    
+
     /* グラデーション */
     --gradient-gold: linear-gradient(135deg, #f5d77e 0%, #c9a227 50%, #9e7d1a 100%);
     --gradient-sakura: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
     --gradient-night: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 50%, #4a2c6a 100%);
-    
+
     /* シャドウ */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
     --shadow-glow: 0 0 30px rgba(201, 162, 39, 0.4);
-    
+
     /* フォント */
     --font-serif: 'Noto Serif JP', serif;
     --font-gothic: 'Zen Maru Gothic', sans-serif;
@@ -69,6 +69,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -95,8 +96,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .logo-area h1 {
@@ -183,8 +191,17 @@ body {
 }
 
 @keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
 }
 
 /* ========================================
@@ -324,7 +341,8 @@ body {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -347,8 +365,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .card-back {
@@ -369,7 +394,7 @@ body {
     transition: all 0.5s ease 0.5s;
 }
 
-.furisode-card.flipped ~ .type-info {
+.furisode-card.flipped~.type-info {
     opacity: 1;
     transform: translateY(0);
 }
@@ -395,7 +420,7 @@ body {
     transition: all 0.5s ease 0.8s;
 }
 
-.furisode-card.flipped ~ #next-btn {
+.furisode-card.flipped~#next-btn {
     opacity: 1;
     transform: translateY(0);
 }
@@ -419,8 +444,15 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 .special-header h2 {
@@ -458,12 +490,13 @@ body {
 }
 
 .lucky-card.flipped {
-    opacity: 0.2;
-    transform: scale(0.8) translateY(-20px);
+    opacity: 0.8;
+    transform: scale(0.7) translateY(-40px);
     transition: all 0.8s ease;
 }
 
-.lucky-card-front, .lucky-card-back {
+.lucky-card-front,
+.lucky-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -485,19 +518,22 @@ body {
     position: absolute;
     width: 150%;
     height: 50px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
     transform: rotate(-45deg);
     animation: shine 2s ease-in-out infinite;
 }
 
 @keyframes shine {
-    0% { left: -150%; }
-    100% { left: 150%; }
+    0% {
+        left: -150%;
+    }
+
+    100% {
+        left: 150%;
+    }
 }
 
 .question-mark {
@@ -528,12 +564,13 @@ body {
 
 .coupon-revealed.show {
     opacity: 1;
-    transform: translateY(-100px); /* カードと重ならないよう上に持ち上げる */
+    transform: translateY(0);
     pointer-events: auto;
 }
 
 .coupon-text {
-    background: rgba(0, 0, 0, 0.6); /* コントラスト向上のため黒背景を強める */
+    background: rgba(0, 0, 0, 0.6);
+    /* コントラスト向上のため黒背景を強める */
     backdrop-filter: blur(15px);
     border-radius: 1rem;
     padding: 1.5rem;
@@ -597,16 +634,16 @@ body {
     .logo-area h1 {
         font-size: 1.8rem;
     }
-    
+
     .question-text {
         font-size: 1.3rem;
     }
-    
+
     .furisode-card {
         width: 240px;
         height: 320px;
     }
-    
+
     .lucky-card {
         width: 240px;
         height: 150px;
