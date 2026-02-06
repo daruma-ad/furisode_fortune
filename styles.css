@@ -472,7 +472,8 @@ body {
 .lucky-card {
     width: 280px;
     height: 180px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 4rem;
+    /* マージンを増やして下の要素との距離を確保 */
     perspective: 1000px;
     cursor: pointer;
 }
@@ -498,6 +499,10 @@ body {
 .lucky-card-front,
 .lucky-card-back {
     position: absolute;
+    top: 0;
+    /* 明示的に指定してズレを防止 */
+    left: 0;
+    /* 明示的に指定してズレを防止 */
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
