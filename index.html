@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運命の一着診断 〜あなたにぴったりの振袖占い〜</title>
+    <meta name="description" content="Yes/Noで答えるだけで、あなたにぴったりの振袖が見つかる！スペシャルチャンスで1万円OFFクーポンもGET！">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- スタート画面 -->
+        <section id="start-screen" class="screen active">
+            <div class="content">
+                <div class="logo-area">
+                    <div class="sakura-decoration">🌸</div>
+                    <h1>運命の一着診断</h1>
+                    <p class="subtitle">〜あなたにぴったりの振袖占い〜</p>
+                </div>
+                <div class="description">
+                    <p>5つの質問に答えるだけで<br>あなたに似合う振袖が見つかります</p>
+                </div>
+                <button id="start-btn" class="primary-btn">
+                    <span>診断スタート</span>
+                    <span class="arrow">→</span>
+                </button>
+                <div class="bonus-badge">
+                    <span class="sparkle">✨</span>
+                    <span>診断後にスペシャル特典あり！</span>
+                    <span class="sparkle">✨</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 質問画面 -->
+        <section id="question-screen" class="screen">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="question-counter">
+                <span id="current-q">1</span> / <span id="total-q">5</span>
+            </div>
+            <div class="question-content">
+                <h2 id="question-text" class="question-text"></h2>
+            </div>
+            <div class="answer-buttons">
+                <button class="answer-btn yes-btn" data-answer="yes">
+                    <span class="answer-icon">○</span>
+                    <span>はい</span>
+                </button>
+                <button class="answer-btn no-btn" data-answer="no">
+                    <span class="answer-icon">×</span>
+                    <span>いいえ</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 結果画面 -->
+        <section id="result-screen" class="screen">
+            <div class="result-content">
+                <div class="result-header">
+                    <p class="result-label">あなたにぴったりの振袖は…</p>
+                </div>
+                <div class="furisode-card" id="furisode-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-pattern">🎴</div>
+                        </div>
+                        <div class="card-back">
+                            <img id="furisode-image" src="" alt="振袖">
+                        </div>
+                    </div>
+                </div>
+                <div class="type-info">
+                    <h2 id="type-name" class="type-name"></h2>
+                    <p id="type-description" class="type-description"></p>
+                </div>
+                <button id="next-btn" class="primary-btn">
+                    <span>次へ進む</span>
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- スペシャルチャンス画面 -->
+        <section id="special-screen" class="screen">
+            <div class="special-content">
+                <div class="special-header">
+                    <div class="confetti-emoji">🎊</div>
+                    <h2>スペシャルチャンス！</h2>
+                    <p>ラッキーカードをタップしてください</p>
+                </div>
+                <div class="lucky-card" id="lucky-card">
+                    <div class="lucky-card-inner">
+                        <div class="lucky-card-front">
+                            <div class="card-shine"></div>
+                            <span class="question-mark">?</span>
+                        </div>
+                        <div class="lucky-card-back">
+                            <img src="images/lucky_card.png" alt="1万円OFF">
+                        </div>
+                    </div>
+                </div>
+                <div class="coupon-revealed" id="coupon-revealed">
+                    <div class="coupon-text">
+                        <p class="congrats">🎉 おめでとうございます！ 🎉</p>
+                        <h3>1万円OFFクーポン</h3>
+                        <p class="coupon-note">このクーポンは来店予約時にご利用いただけます</p>
+                    </div>
+                    <a href="https://example.com/reservation" target="_blank" id="reserve-btn" class="reserve-btn">
+                        <span>クーポンを使って来店予約</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+/* ========================================
+   振袖占いアプリ - スタイルシート
+   ======================================== */
+
+:root {
+    /* カラーパレット */
+    --primary-gold: #c9a227;
+    --primary-red: #b8324a;
+    --primary-pink: #e8a2b8;
+    --dark-purple: #2d1b4e;
+    --deep-burgundy: #5a1a2e;
+    --cream: #fdf5e6;
+    --white: #ffffff;
+    
+    /* グラデーション */
+    --gradient-gold: linear-gradient(135deg, #f5d77e 0%, #c9a227 50%, #9e7d1a 100%);
+    --gradient-sakura: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
+    --gradient-night: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 50%, #4a2c6a 100%);
+    
+    /* シャドウ */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 30px rgba(201, 162, 39, 0.4);
+    
+    /* フォント */
+    --font-serif: 'Noto Serif JP', serif;
+    --font-gothic: 'Zen Maru Gothic', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-gothic);
+    background: var(--gradient-night);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ========================================
+   画面共通スタイル
+   ======================================== */
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   スタート画面
+   ======================================== */
+
+#start-screen .content {
+    text-align: center;
+    width: 100%;
+}
+
+.logo-area {
+    margin-bottom: 2rem;
+}
+
+.sakura-decoration {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.logo-area h1 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: var(--primary-gold);
+    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--primary-pink);
+    letter-spacing: 0.15em;
+}
+
+.description {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.description p {
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ボタン共通 */
+.primary-btn {
+    background: var(--gradient-gold);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-family: var(--font-gothic);
+    font-weight: 700;
+    color: var(--deep-burgundy);
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(201, 162, 39, 0.6);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.primary-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+.bonus-badge {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(232, 162, 184, 0.2);
+    border-radius: 30px;
+    border: 1px solid rgba(232, 162, 184, 0.4);
+    color: var(--primary-pink);
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ========================================
+   質問画面
+   ======================================== */
+
+#question-screen {
+    padding-top: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-gold);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 3px;
+}
+
+.question-counter {
+    color: var(--primary-gold);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.question-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.question-text {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.8;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    padding-bottom: 3rem;
+}
+
+.answer-btn {
+    flex: 1;
+    padding: 2rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    font-family: var(--font-gothic);
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.answer-icon {
+    font-size: 2rem;
+}
+
+.yes-btn:hover {
+    background: rgba(201, 162, 39, 0.3);
+    border-color: var(--primary-gold);
+    transform: translateY(-5px);
+}
+
+.no-btn:hover {
+    background: rgba(232, 162, 184, 0.3);
+    border-color: var(--primary-pink);
+    transform: translateY(-5px);
+}
+
+.answer-btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   結果画面
+   ======================================== */
+
+.result-content {
+    text-align: center;
+    width: 100%;
+}
+
+.result-header {
+    margin-bottom: 2rem;
+}
+
+.result-label {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--primary-gold);
+    letter-spacing: 0.1em;
+}
+
+/* 振袖カードのフリップ */
+.furisode-card {
+    width: 280px;
+    height: 380px;
+    margin: 0 auto 2rem;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.furisode-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.card-front {
+    background: var(--gradient-sakura);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-pattern {
+    font-size: 5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: var(--cream);
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.type-info {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.5s;
+}
+
+.furisode-card.flipped ~ .type-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.type-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);
+}
+
+.type-description {
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 0 1rem;
+}
+
+#next-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.8s;
+}
+
+.furisode-card.flipped ~ #next-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   スペシャルチャンス画面
+   ======================================== */
+
+.special-content {
+    text-align: center;
+    width: 100%;
+}
+
+.special-header {
+    margin-bottom: 3rem;
+}
+
+.confetti-emoji {
+    font-size: 4rem;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.special-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--primary-gold);
+    margin: 1rem 0;
+    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);
+}
+
+.special-header p {
+    color: var(--primary-pink);
+    font-size: 1rem;
+}
+
+/* ラッキーカード */
+.lucky-card {
+    width: 280px;
+    height: 180px;
+    margin: 0 auto 2rem;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.lucky-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.lucky-card.flipped .lucky-card-inner {
+    transform: rotateY(180deg);
+}
+
+.lucky-card-front, .lucky-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow);
+}
+
+.lucky-card-front {
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-shine {
+    position: absolute;
+    width: 150%;
+    height: 50px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: rotate(-45deg);
+    animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+.question-mark {
+    font-size: 5rem;
+    color: var(--deep-burgundy);
+    font-weight: 700;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.lucky-card-back {
+    transform: rotateY(180deg);
+    background: var(--cream);
+}
+
+.lucky-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* クーポン表示 */
+.coupon-revealed {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.coupon-revealed.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.coupon-text {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(201, 162, 39, 0.4);
+}
+
+.congrats {
+    color: var(--primary-gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.coupon-text h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);
+}
+
+.coupon-note {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.reserve-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-red);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(184, 50, 74, 0.4);
+    transition: all 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background: #9e2a3f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(184, 50, 74, 0.5);
+}
+
+.reserve-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.reserve-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   レスポンシブ対応
+   ======================================== */
+
+@media (max-width: 360px) {
+    .logo-area h1 {
+        font-size: 1.8rem;
+    }
+    
+    .question-text {
+        font-size: 1.3rem;
+    }
+    
+    .furisode-card {
+        width: 240px;
+        height: 320px;
+    }
+    
+    .lucky-card {
+        width: 240px;
+        height: 150px;
+    }
+}
+
+@media (min-height: 800px) {
+    .screen {
+        padding: 3rem 1.5rem;
+    }
+}
