@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <meta name="description" content="Yes/Noで答えるだけで、あなたにぴったりの振袖が見つかる！スペシャルチャンスで1万円OFFクーポンもGET！">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- スタート画面 -->
@@ -64,6 +68,8 @@
                 <div class="result-header">
                     <p class="result-label">あなたにぴったりの振袖は…</p>
                 </div>
+                <h2 id="result-catchphrase" class="result-catchphrase"></h2>
+
                 <div class="furisode-card" id="furisode-card">
                     <div class="card-inner">
                         <div class="card-front">
@@ -76,12 +82,26 @@
                 </div>
                 <div class="type-info">
                     <h2 id="type-name" class="type-name"></h2>
-                    <p id="type-description" class="type-description"></p>
+                    <!-- 性格分析 -->
+                    <div class="analysis-box">
+                        <h4>✨ あなたの魅力分析</h4>
+                        <p id="type-analysis"></p>
+                    </div>
+                    <!-- コーデ提案 -->
+                    <div class="coordination-box">
+                        <h4>👘 おすすめコーデ</h4>
+                        <p id="type-coordination"></p>
+                    </div>
                 </div>
-                <button id="next-btn" class="primary-btn">
-                    <span>次へ進む</span>
-                    <span class="arrow">→</span>
-                </button>
+                <div class="result-actions">
+                    <button id="next-btn" class="primary-btn">
+                        <span>診断を完了して特典へ</span>
+                        <span class="arrow">→</span>
+                    </button>
+                    <a href="https://darumaya-gofuku.jp/collection/" target="_blank" class="view-collection-link">
+                        この色の振袖一覧を見る
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -121,4 +141,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
