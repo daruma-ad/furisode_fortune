@@ -743,3 +743,192 @@ body {
         padding: 3rem 1.5rem;
     }
 }
+
+/* ========================================
+   来店予約画面のスタイル
+   ======================================== */
+
+.reservation-content {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.reservation-header {
+    margin-bottom: 2rem;
+}
+
+.reservation-header h2 {
+    font-family: var(--font-serif);
+    color: var(--primary-gold);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.reservation-header p {
+    color: var(--white);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.reservation-form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--primary-pink);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.required {
+    background: var(--primary-red);
+    color: var(--white);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-gothic);
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+}
+
+.result-badge {
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--primary-gold);
+    border-radius: 8px;
+    color: var(--primary-gold);
+    font-weight: bold;
+    text-align: center;
+}
+
+.applied-coupon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201, 162, 39, 0.1);
+    border: 1px solid var(--primary-gold);
+    color: var(--primary-gold);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.submit-btn {
+    width: 100%;
+    background: var(--gradient-gold);
+    border: none;
+    padding: 1rem;
+    border-radius: 50px;
+    color: var(--deep-burgundy);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: var(--white);
+    opacity: 0.7;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* ========================================
+   完了画面のスタイル
+   ======================================== */
+
+.thanks-content {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.thanks-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: celebrate 1s ease-out;
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.thanks-content h2 {
+    font-family: var(--font-serif);
+    color: var(--primary-gold);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.thanks-message {
+    color: var(--white);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.reservation-details {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+    color: var(--primary-pink);
+}

@@ -130,11 +130,67 @@
                         <h3>1万円OFFクーポン</h3>
                         <p class="coupon-note">このクーポンは来店予約時にご利用いただけます</p>
                     </div>
-                    <a href="https://example.com/reservation" target="_blank" id="reserve-btn" class="reserve-btn">
+                    <button id="reserve-btn" class="reserve-btn">
                         <span>クーポンを使って来店予約</span>
                         <span class="arrow">→</span>
-                    </a>
+                    </button>
                 </div>
+            </div>
+        </section>
+
+        <!-- 来店予約画面 -->
+        <section id="reservation-screen" class="screen">
+            <div class="reservation-content">
+                <div class="reservation-header">
+                    <h2>来店予約フォーム</h2>
+                    <p>クーポンを適用して、お得にご予約いただけます</p>
+                </div>
+                <div class="reservation-form-container">
+                    <form id="reservation-form">
+                        <div class="form-group">
+                            <label for="user-name">お名前 <span class="required">必須</span></label>
+                            <input type="text" id="user-name" name="name" placeholder="例：山田 花子" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-tel">電話番号 <span class="required">必須</span></label>
+                            <input type="tel" id="user-tel" name="tel" placeholder="例：090-1234-5678" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reserve-date">来店希望日 <span class="required">必須</span></label>
+                            <input type="date" id="reserve-date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>診断結果（引き継ぎ済み）</label>
+                            <div id="result-badge" class="result-badge"></div>
+                        </div>
+                        <div class="applied-coupon">
+                            <span class="coupon-icon">🎫</span>
+                            <span>1万円OFFクーポン適用中</span>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>予約を確定する</span>
+                            <span class="arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+                <button id="back-to-special" class="back-link">クーポン画面へ戻る</button>
+            </div>
+        </section>
+
+        <!-- 完了画面 -->
+        <section id="thanks-screen" class="screen">
+            <div class="thanks-content">
+                <div class="thanks-icon">✨</div>
+                <h2>ご予約ありがとうございます</h2>
+                <div class="thanks-message">
+                    <p>来店予約を承りました。<br>担当者より順次ご連絡させていただきます。</p>
+                </div>
+                <div class="reservation-details">
+                    <p>ご来店をお待ちしております。</p>
+                </div>
+                <button id="home-btn" class="primary-btn">
+                    <span>トップに戻る</span>
+                </button>
             </div>
         </section>
     </div>

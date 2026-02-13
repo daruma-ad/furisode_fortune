@@ -97,7 +97,9 @@ const screens = {
     start: document.getElementById('start-screen'),
     question: document.getElementById('question-screen'),
     result: document.getElementById('result-screen'),
-    special: document.getElementById('special-screen')
+    special: document.getElementById('special-screen'),
+    reservation: document.getElementById('reservation-screen'),
+    thanks: document.getElementById('thanks-screen')
 };
 
 const elements = {
@@ -115,7 +117,12 @@ const elements = {
     typeCoordination: document.getElementById('type-coordination'),
     nextBtn: document.getElementById('next-btn'),
     luckyCard: document.getElementById('lucky-card'),
-    couponRevealed: document.getElementById('coupon-revealed')
+    couponRevealed: document.getElementById('coupon-revealed'),
+    reserveBtn: document.getElementById('reserve-btn'),
+    reservationForm: document.getElementById('reservation-form'),
+    resultBadge: document.getElementById('result-badge'),
+    backToSpecialBtn: document.getElementById('back-to-special'),
+    homeBtn: document.getElementById('home-btn')
 };
 
 // シャッフル＆抽出ロジック (Fisher-Yates)
@@ -226,6 +233,53 @@ function flipLuckyCard() {
     }
 }
 
+// 予約画面表示
+function showReservationScreen() {
+    const result = getResult();
+    elements.resultBadge.textContent = `おすすめ：${result.name}`;
+    showScreen('reservation');
+}
+
+// 予約送信処理（Formspree連携）
+function handleReservationSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData(elements.reservationForm);
+
+    // 診断結果とクーポン情報を追加
+    const result = getResult();
+    formData.append('診断結果', result.name);
+    formData.append('クーポン', '1万円OFF');
+
+    const submitBtn = elements.reservationForm.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>送信中...</span>';
+
+    fetch('https://formspree.io/f/mojnepkb', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                showScreen('thanks');
+                elements.reservationForm.reset();
+            } else {
+                alert('送信に失敗しました。もう一度お試しください。');
+            }
+        })
+        .catch(() => {
+            alert('通信エラーが発生しました。もう一度お試しください。');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+}
+
 // リセット
 function resetApp() {
     currentQuestion = 0;
@@ -273,6 +327,26 @@ function initEventListeners() {
     // ラッキーカードクリック
     elements.luckyCard.addEventListener('click', () => {
         flipLuckyCard();
+    });
+
+    // 予約ボタンクリック
+    elements.reserveBtn.addEventListener('click', () => {
+        showReservationScreen();
+    });
+
+    // 予約フォーム送信
+    elements.reservationForm.addEventListener('submit', (e) => {
+        handleReservationSubmit(e);
+    });
+
+    // クーポン画面へ戻る
+    elements.backToSpecialBtn.addEventListener('click', () => {
+        showScreen('special');
+    });
+
+    // トップに戻る
+    elements.homeBtn.addEventListener('click', () => {
+        showScreen('start');
     });
 }
 
